@@ -4,7 +4,7 @@ import { CartContext } from '../contexts/CartContext';
 // Components
 import Item from './ShoppingCartItem';
 
-const ShoppingCart = props => {
+const ShoppingCart = () => {
 	const cart = useContext(CartContext)
 
 	const getCartTotal = () => {
@@ -12,6 +12,8 @@ const ShoppingCart = props => {
 			return acc + value.price;
 		}, 0).toFixed(2);
 	};
+
+	console.log(cart)
 
 	return (
 		<div className="shopping-cart">

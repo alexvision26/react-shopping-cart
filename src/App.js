@@ -17,14 +17,15 @@ function App() {
 	const addItem = item => {
 		// add the given item to the cart
 		// console.log(item)
-		setCart(item)
+		setCart(cart => [...cart, item ] )
+		console.log(item)
 		return cart;
 	};
 
 	return (
 		<div className="App">
 			<ProductContext.Provider value={{ products, addItem }}>
-				<CartContext.Provider value={{ cart }}>
+				<CartContext.Provider value={cart}>
 			<Navigation cart={cart} />
 
 			{/* Routes */}
@@ -33,8 +34,6 @@ function App() {
 				path="/"
 				component={Products}
 					/>
-				)}
-			/>
 
 			<Route
 				path="/cart"
